@@ -46,7 +46,7 @@ The most direct approach is just to reuse the SQuAD dataset~\cite{rajpurkar2016s
     \item
         Many \sys{SQuAD} questions are indeed context-dependent. For example, a question is \ti{What individual is the school named after?} posed on one passage of the Wikipedia article \ti{Harvard University}, or another question is \ti{What did Luther call these donations?} based on a passage that describes \ti{Martin Luther}. Basically, these questions cannot be understood by themselves and thus are useless for open-domain QA problems. \newcite{clark2018simple} estimated around 32.6\% of the questions in \sys{SQuAD} are either document-dependent or passage-dependent.
     \item
-        Finally, the size of SQuAD is rather small (80k training examples). It should further improve the system performance if wen can collect more training examples.
+        Finally, the size of SQuAD is rather small (80k training examples). It should further improve the system performance if we can collect more training examples.
 \end{itemize}
 
 To overcome these problems, we propose a procedure to automatically create additional training examples from other question answering resources. The idea is to re-use the efficient information retrieval module that we built: if we already have a question answer pair $(q, a)$ and the retrieval module can help us find a paragraph relevant to the question $q$ and the answer segment $a$ appears in the paragraph, then we can create a \ti{distantly-supervised} training example in the form of a $(p, q, a)$ triple for training the reading comprehension models:
